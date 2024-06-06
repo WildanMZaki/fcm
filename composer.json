@@ -1,0 +1,22 @@
+{
+    "name": "wildanmzaki/fcm",
+    "description": "This is helper class to simplify sending notification with firebase cloud messaging",
+    "type": "library",
+    "require": {
+        "google/apiclient": "^2.16",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "WildanMZaki\\Fcm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "WildanMZaki",
+            "email": "wildanmzaki7@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
