@@ -14,9 +14,10 @@
     },
     "authors": [
         {
-            "name": "WildanMZaki",
+            "name": "Wildan M Zaki",
             "email": "wildanmzaki7@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "version": "1.0.0"
 }
