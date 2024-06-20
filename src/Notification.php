@@ -10,6 +10,8 @@ class Notification
     private $body;
     private $image;
     private $data = [];
+    private $pattern = '{data}';
+    private $replacer = [];
 
     public static function to(string $token): self
     {
@@ -21,6 +23,18 @@ class Notification
     {
         self::$_topic = $topic;
         return new self;
+    }
+
+    public function replacePattern($pattern)
+    {
+        if (strpos($pattern, 'data') === false) throw new \Exception("pattern must contain word 'data'");
+        $this->pattern = $pattern;
+        return $this;
+    }
+
+    public function replace(array $replacer = [])
+    {
+        $this->replacer = $replacer;
     }
 
     public function setTitle(string $title): self
@@ -49,6 +63,13 @@ class Notification
 
     public function build(): array
     {
+        if (!empty($replacer)) {
+            foreach ($this->replacer as $key => $value) {
+                $replace = str_replace('data', $key, $this->pattern);
+                $this->body = str_replace($replace, $value, $this->body);
+                $this->body = str_replace($replace, $value, $this->body);
+            }
+        }
         $notification = [
             "message" => [
                 "notification" => [
